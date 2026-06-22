@@ -5,6 +5,7 @@
 //  Created by morealcode on 22/06/2026.
 //
 
+import MapKit
 import SwiftUI
 
 struct ArtworkDetailView: View {
@@ -75,9 +76,26 @@ struct ArtworkDetailView: View {
             .padding(.bottom, 24)
             .padding(.horizontal, 24)
 
-            RoundedRectangle(cornerRadius: 26)
-                .frame(height: 160)
-                .padding(.horizontal, 24)
+            Map {
+                Annotation(
+                    "",
+                    coordinate: CLLocationCoordinate2D(
+                        latitude: artwork.coordinates.latitude,
+                        longitude: artwork.coordinates.longitude
+                    )
+                ) {
+                    Image(artwork.illustration ?? "placeholder")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 54, height: 54)
+                        .clipShape(Circle())
+                }
+            }
+            .frame(height: 160)
+            .clipShape(
+                RoundedRectangle(cornerRadius: 26)
+            )
+            .padding(.horizontal, 24)
 
             Spacer()
         }
