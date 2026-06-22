@@ -16,12 +16,16 @@ struct ArtworkDetailView: View {
 
         VStack(alignment: .leading, spacing: 0) {
 
-            Image(artwork.illustration ?? "placeholder")
-                .resizable()
-                .scaledToFill()
-                .frame(maxWidth: .infinity)
-                .frame(height: 278)
-                .padding(.bottom, 24)
+            // Adaptative for any image size
+            GeometryReader { geometry in
+                Image(artwork.illustration ?? "placeholder")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: geometry.size.width, height: 278)
+                    .clipped()
+            }
+            .frame(height: 278)
+            .padding(.bottom, 24)
 
             Text(artwork.title)
                 .font(.title2)
@@ -106,5 +110,5 @@ struct ArtworkDetailView: View {
 
 #Preview {
     @Previewable var artworks = ArtworkViewModel().artworks
-    ArtworkDetailView(artwork: artworks[0])
+    ArtworkDetailView(artwork: artworks[6])
 }
