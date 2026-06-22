@@ -28,4 +28,12 @@ struct Artwork: Identifiable {
     let postalCode: String
     let city: String
     let coordinates: (latitude: Double, longitude: Double)
+
+    var formattedDate: String {
+        if let month {
+            return "\(month) \(String(year))"
+        } else {
+            return "\(String(year))"
+        }
+    }
 }

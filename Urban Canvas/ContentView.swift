@@ -13,7 +13,6 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             ArtworkListView(artworks: artworkViewModel.artworks)
-                .navigationTitle("Liste des Street arts")
         }
     }
 }

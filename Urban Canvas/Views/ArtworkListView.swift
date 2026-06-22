@@ -15,29 +15,35 @@ struct ArtworkListView: View {
 
         List(artworks) { artwork in
 
-            HStack {
-                Image(artwork.illustration ?? "placeholder")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 60, height: 60)
-                    .clipShape(Circle())
+            NavigationLink {
+                ArtworkDetailView(artwork: artwork)
+            } label: {
+                HStack {
+                    Image(artwork.illustration ?? "placeholder")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 60, height: 60)
+                        .clipShape(Circle())
+                    VStack(alignment: .leading) {
+                        Text(artwork.title)
 
-                VStack(alignment: .leading) {
-                    Text(artwork.title)
-
-                    HStack {
-                        Image(systemName: "mappin.circle.fill")
-                        Text(artwork.city)
+                        HStack {
+                            Image(systemName: "mappin.circle.fill")
+                            Text(artwork.city)
+                        }
+                        .font(.subheadline)
+                        .foregroundStyle(.secondText)
                     }
-                    .font(.subheadline)
-                    .foregroundStyle(.secondText)
                 }
             }
         }
+        .navigationTitle("Liste des Street arts")
     }
 }
 
 #Preview {
     @Previewable var artworks = ArtworkViewModel().artworks
-    ArtworkListView(artworks: artworks)
+    NavigationStack {
+        ArtworkListView(artworks: artworks)
+    }
 }
