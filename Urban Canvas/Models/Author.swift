@@ -11,7 +11,7 @@ struct Author: Identifiable {
     let id: UUID = UUID()
 
     let firstName: String
-    let lastName: String
+    let lastName: String?
     let birthYear: Int
     let picture: String
     let origin: String

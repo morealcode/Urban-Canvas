@@ -14,7 +14,7 @@ struct Artwork: Identifiable {
     let title: String
     let description: String
     let illustration: String?
-    let month: String
+    let month: String?
     let year: Int
 
     let author: Author
