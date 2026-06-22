@@ -14,7 +14,7 @@ class ArtworkViewModel {
         Artwork(
             title: "Liberté, Égalité, Fraternité",
             description: "Fresque monumentale représentant Marianne, réalisée par Shepard Fairey en hommage aux victimes des attentats de Paris.",
-            illustration: "liberte_egalite_fraternite",
+            illustration: nil, // "liberte_egalite_fraternite",
             month: nil,
             year: 2016,
             author: Author(
@@ -37,7 +37,7 @@ class ArtworkViewModel {
         Artwork(
             title: "Love Won’t Tear Us Apart",
             description: "Fresque de D*Face représentant un couple enlacé dans un style pop art sombre et satirique.",
-            illustration: "love_wont_tear_us_apart",
+            illustration: nil, // "love_wont_tear_us_apart",
             month: nil,
             year: 2017,
             author: Author(
@@ -60,7 +60,7 @@ class ArtworkViewModel {
         Artwork(
             title: "La Madre Secular 2",
             description: "Fresque monumentale d’INTI représentant une Madone laïque mêlant références sacrées et scientifiques.",
-            illustration: "la_madre_secular_2",
+            illustration: nil, // "la_madre_secular_2",
             month: nil,
             year: 2015,
             author: Author(
@@ -83,7 +83,7 @@ class ArtworkViewModel {
         Artwork(
             title: "Fresque Ukraine",
             description: "Fresque de C215 réalisée en soutien à l’Ukraine.",
-            illustration: "c215_ukraine",
+            illustration: nil, // "c215_ukraine",
             month: "Mars",
             year: 2022,
             author: Author(
@@ -106,7 +106,7 @@ class ArtworkViewModel {
         Artwork(
             title: "Fresque C215",
             description: "Œuvre murale de C215 dans le parcours Boulevard Paris 13.",
-            illustration: "c215_boulevard_paris_13",
+            illustration: nil, // "c215_boulevard_paris_13",
             month: nil,
             year: 2018,
             author: Author(
@@ -129,7 +129,7 @@ class ArtworkViewModel {
         Artwork(
             title: "PA_1525",
             description: "Mosaïque géante d’Invader aux couleurs du drapeau italien, située près de la Place d’Italie.",
-            illustration: "pa_1525",
+            illustration: nil, // "pa_1525",
             month: nil,
             year: 2020,
             author: Author(
@@ -152,7 +152,7 @@ class ArtworkViewModel {
         Artwork(
             title: "Invader - Boulevard Vincent Auriol",
             description: "Mosaïque urbaine d’Invader intégrée au parcours street art du 13e arrondissement.",
-            illustration: "invader_vincent_auriol",
+            illustration: nil, // "invader_vincent_auriol",
             month: nil,
             year: 2018,
             author: Author(
@@ -175,7 +175,7 @@ class ArtworkViewModel {
         Artwork(
             title: "Fresque Add Fuel",
             description: "Fresque inspirée des azulejos portugais, avec des motifs graphiques et décoratifs.",
-            illustration: "add_fuel",
+            illustration: nil, // "add_fuel",
             month: nil,
             year: 2017,
             author: Author(
@@ -198,7 +198,7 @@ class ArtworkViewModel {
         Artwork(
             title: "Fresque Seth",
             description: "Fresque poétique représentant un enfant, dans le style reconnaissable de Seth.",
-            illustration: "seth_jeanne_darc",
+            illustration: nil, // "seth_jeanne_darc",
             month: nil,
             year: 2017,
             author: Author(
@@ -221,7 +221,7 @@ class ArtworkViewModel {
         Artwork(
             title: "Fresque Conor Harrington",
             description: "Fresque monumentale mêlant peinture classique et énergie contemporaine du street art.",
-            illustration: "conor_harrington",
+            illustration: nil, // "conor_harrington",
             month: nil,
             year: 2017,
             author: Author(
@@ -244,7 +244,7 @@ class ArtworkViewModel {
         Artwork(
             title: "Fresque Cryptik",
             description: "Œuvre calligraphique monumentale inspirée par les écritures, les symboles et la spiritualité.",
-            illustration: "cryptik",
+            illustration: nil, // "cryptik",
             month: nil,
             year: 2018,
             author: Author(
@@ -267,7 +267,7 @@ class ArtworkViewModel {
         Artwork(
             title: "Fresque Hownosm",
             description: "Fresque en noir, blanc et rouge, caractéristique du duo allemand Hownosm.",
-            illustration: "hownosm",
+            illustration: nil, // "hownosm",
             month: nil,
             year: 2017,
             author: Author(
@@ -290,7 +290,7 @@ class ArtworkViewModel {
         Artwork(
             title: "Fresque Hush",
             description: "Fresque inspirée par la culture urbaine et les figures féminines stylisées.",
-            illustration: "hush",
+            illustration: nil, // "hush",
             month: nil,
             year: 2017,
             author: Author(
@@ -313,7 +313,7 @@ class ArtworkViewModel {
         Artwork(
             title: "Fresque DALeast",
             description: "Fresque animalière au style fragmenté et dynamique, typique de DALeast.",
-            illustration: "daleast",
+            illustration: nil, // "daleast",
             month: nil,
             year: 2017,
             author: Author(
@@ -336,7 +336,7 @@ class ArtworkViewModel {
         Artwork(
             title: "Fresque Tristan Eaton",
             description: "Fresque colorée mêlant graphisme, pop culture et composition monumentale.",
-            illustration: "tristan_eaton",
+            illustration: nil, // "tristan_eaton",
             month: nil,
             year: 2016,
             author: Author(
@@ -359,7 +359,7 @@ class ArtworkViewModel {
         Artwork(
             title: "Fresque M-City",
             description: "Fresque urbaine au style architectural et industriel, réalisée par l’artiste polonais M-City.",
-            illustration: "m_city",
+            illustration: nil, // "m_city",
             month: nil,
             year: 2016,
             author: Author(
@@ -382,7 +382,7 @@ class ArtworkViewModel {
         Artwork(
             title: "Fresque Pantónio",
             description: "Fresque fluide et dynamique, souvent associée à des formes organiques et marines.",
-            illustration: "pantonio",
+            illustration: nil, // "pantonio",
             month: nil,
             year: 2017,
             author: Author(
@@ -405,7 +405,7 @@ class ArtworkViewModel {
         Artwork(
             title: "Fresque Vhils",
             description: "Œuvre murale réalisée avec la technique de gravure/destruction de surface propre à Vhils.",
-            illustration: "vhils",
+            illustration: nil, // "vhils",
             month: nil,
             year: 2017,
             author: Author(
@@ -428,7 +428,7 @@ class ArtworkViewModel {
         Artwork(
             title: "Fresque ROA",
             description: "Fresque animalière en noir et blanc, caractéristique du street artiste belge ROA.",
-            illustration: "roa",
+            illustration: nil, // "roa",
             month: nil,
             year: 2016,
             author: Author(
@@ -451,7 +451,7 @@ class ArtworkViewModel {
         Artwork(
             title: "Fresque eL Seed",
             description: "Œuvre de calligraffiti mêlant calligraphie arabe et art mural contemporain.",
-            illustration: "el_seed",
+            illustration: nil, // "el_seed",
             month: nil,
             year: 2013,
             author: Author(
@@ -474,7 +474,7 @@ class ArtworkViewModel {
         Artwork(
             title: "Fresque Sainer",
             description: "Fresque monumentale réalisée par Sainer, artiste polonais connu pour ses compositions figuratives.",
-            illustration: "sainer",
+            illustration: nil, // "sainer",
             month: nil,
             year: 2016,
             author: Author(

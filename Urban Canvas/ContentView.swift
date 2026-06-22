@@ -8,14 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var artworkViewModel: ArtworkViewModel = ArtworkViewModel()
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            ArtworkListView(artworks: artworkViewModel.artworks)
+                .navigationTitle("Liste des Street arts")
         }
-        .padding()
     }
 }
 
