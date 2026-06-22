@@ -2,7 +2,7 @@
 //  Author.swift
 //  Urban Canvas
 //
-//  Created by apprenant130 on 22/06/2026.
+//  Created by morealcode on 22/06/2026.
 //
 
 import Foundation
@@ -12,7 +12,7 @@ struct Author: Identifiable {
 
     let firstName: String
     let lastName: String
-    let age: Int
+    let birthYear: Int
     let picture: String
     let origin: String
     let style: ArtworkStyle
