@@ -24,9 +24,9 @@ struct AuthorListView: View {
                 ForEach(authors) { author in
 
                     VStack(spacing: 13) {
-                        Image("placeholder")
+                        Image(author.picture ?? "placeholder")
                             .resizable()
-                            .scaledToFit()
+                            .scaledToFill()
                             .clipShape(Circle())
                             .frame(width: 65, height: 65)
                             .padding(.top, 10)

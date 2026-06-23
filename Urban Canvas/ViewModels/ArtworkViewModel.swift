@@ -425,7 +425,7 @@ class ArtworkViewModel {
             firstName: "Invader",
             lastName: nil,
             age: "57",
-            picture: "invader",
+            picture: nil,
             origin: "France",
             style: .invaders,
             website: "https://www.space-invaders.com"
