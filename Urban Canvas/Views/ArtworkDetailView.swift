@@ -70,7 +70,7 @@ struct ArtworkDetailView: View {
             .padding(.bottom, 24)
             .padding(.horizontal, 24)
 
-            ArtworkMapView(illustration: artwork.illustration, latitude: artwork.coordinates.latitude, longitude: artwork.coordinates.longitude)
+            ArtworkMiniMapView(illustration: artwork.illustration, latitude: artwork.coordinates.latitude, longitude: artwork.coordinates.longitude)
 
             Spacer()
         }

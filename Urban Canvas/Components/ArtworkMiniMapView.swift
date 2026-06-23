@@ -8,7 +8,7 @@
 import MapKit
 import SwiftUI
 
-struct ArtworkMapView: View {
+struct ArtworkMiniMapView: View {
 
     let illustration: String?
     let latitude: Double
@@ -41,7 +41,7 @@ struct ArtworkMapView: View {
 #Preview {
     @Previewable var artworks = ArtworkViewModel().artworks
 
-    ArtworkMapView(
+    ArtworkMiniMapView(
         illustration: artworks[0].illustration,
         latitude: artworks[0].coordinates.latitude,
         longitude: artworks[0].coordinates.longitude

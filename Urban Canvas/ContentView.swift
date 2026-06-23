@@ -12,11 +12,13 @@ struct ContentView: View {
     @State private var isShowingFilter: Bool = false
     @State private var selectedStyle: ArtworkStyle? = nil
 
+    @State private var selectedView: String = "list"
+
     @State private var artworkViewModel: ArtworkViewModel = ArtworkViewModel()
 
     private var filteredArtworks: [Artwork] {
 
-        guard let isStyleSelected = selectedStyle else {
+        guard selectedStyle != nil else {
             return artworkViewModel.artworks
         }
 
@@ -24,25 +26,43 @@ struct ContentView: View {
     }
 
     var body: some View {
+
         NavigationStack {
-            ArtworkListView(artworks: filteredArtworks)
-                .toolbar {
-                    ToolbarItem(placement: .topBarTrailing) {
-                        Button(
-                            "Filtre",
-                            systemImage: "line.3.horizontal.decrease.circle"
-                        ) {
-                            isShowingFilter = true
-                        }
-                        .popover(isPresented: $isShowingFilter) {
-                            ArtworkFilterView(
-                                isShowing: $isShowingFilter,
-                                selectedStyle: $selectedStyle
-                            )
-                            .presentationCompactAdaptation(.none)
-                        }
+
+            Group {
+                if selectedView == "list" {
+                    ArtworkListView(artworks: filteredArtworks)
+                } else if selectedView == "map" {
+                    ArtworkMapView(artworks: filteredArtworks)
+                }
+            }
+            .toolbar {
+
+                ToolbarItem(placement: .topBarLeading) {
+                    Picker("Choose a view", selection: $selectedView) {
+                        Text("Liste").tag("list")
+                        Text("Map").tag("map")
+                    }
+                    .pickerStyle(.segmented)
+                    .frame(width: 300)
+                }
+
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button(
+                        "Filtre",
+                        systemImage: "line.3.horizontal.decrease.circle"
+                    ) {
+                        isShowingFilter = true
+                    }
+                    .popover(isPresented: $isShowingFilter) {
+                        ArtworkFilterView(
+                            isShowing: $isShowingFilter,
+                            selectedStyle: $selectedStyle
+                        )
+                        .presentationCompactAdaptation(.none)
                     }
                 }
+            }
         }
     }
 }
