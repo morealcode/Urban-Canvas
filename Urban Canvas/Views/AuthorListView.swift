@@ -87,6 +87,7 @@ struct AuthorListView: View {
             }
             .padding(.vertical, 22)
         }
+        .scrollIndicators(.hidden)
         .padding(.horizontal, 22)
         .background(Color.backgroundGray)
     }

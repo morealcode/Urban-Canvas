@@ -40,6 +40,7 @@ struct ArtworkListView: View {
                 return 0
             }
         }
+        .scrollIndicators(.hidden)
         .scrollContentBackground(.hidden)
         .navigationTitle("Liste des Street arts")
     }
