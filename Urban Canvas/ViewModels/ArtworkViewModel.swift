@@ -22,7 +22,7 @@ class ArtworkViewModel {
             author: Author(
                 firstName: "Add",
                 lastName: "Fuel",
-                birthYear: 45,
+                age: "45",
                 picture: "add_fuel",
                 origin: "Portugal",
                 style: .mosaiques,
@@ -46,7 +46,7 @@ class ArtworkViewModel {
             author: Author(
                 firstName: "Julien",
                 lastName: "Malland",
-                birthYear: 54,
+                age: "54",
                 picture: "seth",
                 origin: "France",
                 style: .mural,
@@ -70,7 +70,7 @@ class ArtworkViewModel {
             author: Author(
                 firstName: "Conor",
                 lastName: "Harrington",
-                birthYear: 46,
+                age: "46",
                 picture: "conor_harrington",
                 origin: "Irlande",
                 style: .mural,
@@ -94,7 +94,7 @@ class ArtworkViewModel {
             author: Author(
                 firstName: "Banksy",
                 lastName: nil,
-                birthYear: 52,
+                age: "52",
                 picture: "banksy",
                 origin: "Royaume-Uni",
                 style: .stencil,
@@ -118,7 +118,7 @@ class ArtworkViewModel {
             author: Author(
                 firstName: "Manyoly",
                 lastName: nil,
-                birthYear: 40,
+                age: "40",
                 picture: "manyoly",
                 origin: "France",
                 style: .mural,
@@ -142,7 +142,7 @@ class ArtworkViewModel {
             author: Author(
                 firstName: "Jeff",
                 lastName: "Soto",
-                birthYear: 51,
+                age: "51",
                 picture: "jeff_soto",
                 origin: "États-Unis",
                 style: .mural,
@@ -166,7 +166,7 @@ class ArtworkViewModel {
             author: Author(
                 firstName: "Smoka",
                 lastName: nil,
-                birthYear: 39,
+                age: "39",
                 picture: "smoka",
                 origin: "France",
                 style: .mural,
@@ -190,7 +190,7 @@ class ArtworkViewModel {
             author: Author(
                 firstName: "Julien",
                 lastName: "Malland",
-                birthYear: 54,
+                age: "54",
                 picture: "seth",
                 origin: "France",
                 style: .mural,
@@ -214,7 +214,7 @@ class ArtworkViewModel {
             author: Author(
                 firstName: "Invader",
                 lastName: nil,
-                birthYear: 57,
+                age: "57",
                 picture: "invader",
                 origin: "France",
                 style: .invaders,
@@ -238,7 +238,7 @@ class ArtworkViewModel {
             author: Author(
                 firstName: "Sixe",
                 lastName: "Paredes",
-                birthYear: 50,
+                age: "50",
                 picture: "sixe_paredes",
                 origin: "Espagne",
                 style: .mural,
@@ -262,7 +262,7 @@ class ArtworkViewModel {
             author: Author(
                 firstName: "eL",
                 lastName: "Seed",
-                birthYear: 44,
+                age: "44",
                 picture: "el_seed",
                 origin: "France / Tunisie",
                 style: .calligraphie,
@@ -286,7 +286,7 @@ class ArtworkViewModel {
             author: Author(
                 firstName: "Miss",
                 lastName: "Van",
-                birthYear: 52,
+                age: "52",
                 picture: "miss_van",
                 origin: "France",
                 style: .mural,
@@ -310,7 +310,7 @@ class ArtworkViewModel {
             author: Author(
                 firstName: "Mariusz",
                 lastName: "Waras",
-                birthYear: 48,
+                age: "48",
                 picture: "m_city",
                 origin: "Pologne",
                 style: .mural,
@@ -334,7 +334,7 @@ class ArtworkViewModel {
             author: Author(
                 firstName: "Pantónio",
                 lastName: nil,
-                birthYear: 50,
+                age: "50",
                 picture: "pantonio",
                 origin: "Portugal",
                 style: .mural,
@@ -354,7 +354,7 @@ class ArtworkViewModel {
         Author(
             firstName: "Add",
             lastName: "Fuel",
-            birthYear: 45,
+            age: "45",
             picture: "add_fuel",
             origin: "Portugal",
             style: .mosaiques,
@@ -364,7 +364,7 @@ class ArtworkViewModel {
         Author(
             firstName: "Julien",
             lastName: "Malland",
-            birthYear: 54,
+            age: "54",
             picture: "seth",
             origin: "France",
             style: .mural,
@@ -374,7 +374,7 @@ class ArtworkViewModel {
         Author(
             firstName: "Conor",
             lastName: "Harrington",
-            birthYear: 46,
+            age: "46",
             picture: "conor_harrington",
             origin: "Irlande",
             style: .mural,
@@ -384,7 +384,7 @@ class ArtworkViewModel {
         Author(
             firstName: "Banksy",
             lastName: nil,
-            birthYear: 52,
+            age: "52",
             picture: "banksy",
             origin: "Royaume-Uni",
             style: .stencil,
@@ -394,7 +394,7 @@ class ArtworkViewModel {
         Author(
             firstName: "Manyoly",
             lastName: nil,
-            birthYear: 40,
+            age: "40",
             picture: "manyoly",
             origin: "France",
             style: .mural,
@@ -404,7 +404,7 @@ class ArtworkViewModel {
         Author(
             firstName: "Jeff",
             lastName: "Soto",
-            birthYear: 51,
+            age: "51",
             picture: "jeff_soto",
             origin: "États-Unis",
             style: .mural,
@@ -414,7 +414,7 @@ class ArtworkViewModel {
         Author(
             firstName: "Smoka",
             lastName: nil,
-            birthYear: 39,
+            age: "39",
             picture: "smoka",
             origin: "France",
             style: .mural,
@@ -424,7 +424,7 @@ class ArtworkViewModel {
         Author(
             firstName: "Invader",
             lastName: nil,
-            birthYear: 57,
+            age: "57",
             picture: "invader",
             origin: "France",
             style: .invaders,
@@ -434,7 +434,7 @@ class ArtworkViewModel {
         Author(
             firstName: "Sixe",
             lastName: "Paredes",
-            birthYear: 50,
+            age: "50",
             picture: "sixe_paredes",
             origin: "Espagne",
             style: .mural,
@@ -444,7 +444,7 @@ class ArtworkViewModel {
         Author(
             firstName: "eL",
             lastName: "Seed",
-            birthYear: 44,
+            age: "44",
             picture: "el_seed",
             origin: "France / Tunisie",
             style: .calligraphie,
@@ -454,7 +454,7 @@ class ArtworkViewModel {
         Author(
             firstName: "Miss",
             lastName: "Van",
-            birthYear: 52,
+            age: "52",
             picture: "miss_van",
             origin: "France",
             style: .mural,
@@ -464,7 +464,7 @@ class ArtworkViewModel {
         Author(
             firstName: "Mariusz",
             lastName: "Waras",
-            birthYear: 48,
+            age: "48",
             picture: "m_city",
             origin: "Pologne",
             style: .mural,
@@ -474,7 +474,7 @@ class ArtworkViewModel {
         Author(
             firstName: "Pantónio",
             lastName: nil,
-            birthYear: 50,
+            age: "50",
             picture: "pantonio",
             origin: "Portugal",
             style: .mural,

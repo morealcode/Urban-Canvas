@@ -76,7 +76,7 @@ struct ContentView: View {
             }
             
             Tab("Auteurs", systemImage: "person.circle") {
-                
+                AuthorListView(authors: artworkViewModel.authors)
             }
         }
 

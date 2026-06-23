@@ -12,7 +12,7 @@ struct Author: Identifiable {
 
     let firstName: String
     let lastName: String?
-    let birthYear: Int
+    let age: String
     let picture: String
     let origin: String
     let style: ArtworkStyle
