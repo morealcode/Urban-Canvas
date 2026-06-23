@@ -27,49 +27,59 @@ struct ContentView: View {
 
     var body: some View {
 
-        NavigationStack {
+        TabView {
+            
+            Tab("Oeuvres", systemImage: "photo.artframe.circle") {
+                NavigationStack {
 
-            ZStack {
-                Color.backgroundGray
-                    .ignoresSafeArea()
-                
-                VStack {
-                    if selectedView == "list" {
-                        ArtworkListView(artworks: filteredArtworks)
-                            .padding(.top, 20)
-                    } else if selectedView == "map" {
-                        ArtworkMapView(artworks: filteredArtworks)
+                    ZStack {
+                        Color.backgroundGray
+                            .ignoresSafeArea()
+
+                        VStack {
+                            if selectedView == "list" {
+                                ArtworkListView(artworks: filteredArtworks)
+                                    .padding(.top, 20)
+                            } else if selectedView == "map" {
+                                ArtworkMapView(artworks: filteredArtworks)
+                            }
+                        }
+                    }
+                    .toolbar {
+
+                        ToolbarItem(placement: .topBarLeading) {
+                            Picker("Choose a view", selection: $selectedView) {
+                                Text("Liste").tag("list")
+                                Text("Map").tag("map")
+                            }
+                            .pickerStyle(.segmented)
+                            .frame(width: 300)
+                        }
+
+                        ToolbarItem(placement: .topBarTrailing) {
+                            Button(
+                                "Filtre",
+                                systemImage: "line.3.horizontal.decrease.circle"
+                            ) {
+                                isShowingFilter = true
+                            }
+                            .popover(isPresented: $isShowingFilter) {
+                                ArtworkFilterView(
+                                    isShowing: $isShowingFilter,
+                                    selectedStyle: $selectedStyle
+                                )
+                                .presentationCompactAdaptation(.none)
+                            }
+                        }
                     }
                 }
             }
-            .toolbar {
-
-                ToolbarItem(placement: .topBarLeading) {
-                    Picker("Choose a view", selection: $selectedView) {
-                        Text("Liste").tag("list")
-                        Text("Map").tag("map")
-                    }
-                    .pickerStyle(.segmented)
-                    .frame(width: 300)
-                }
-
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button(
-                        "Filtre",
-                        systemImage: "line.3.horizontal.decrease.circle"
-                    ) {
-                        isShowingFilter = true
-                    }
-                    .popover(isPresented: $isShowingFilter) {
-                        ArtworkFilterView(
-                            isShowing: $isShowingFilter,
-                            selectedStyle: $selectedStyle
-                        )
-                        .presentationCompactAdaptation(.none)
-                    }
-                }
+            
+            Tab("Auteurs", systemImage: "person.circle") {
+                
             }
         }
+
     }
 }
 
