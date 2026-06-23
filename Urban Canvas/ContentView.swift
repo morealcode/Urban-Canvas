@@ -29,11 +29,17 @@ struct ContentView: View {
 
         NavigationStack {
 
-            Group {
-                if selectedView == "list" {
-                    ArtworkListView(artworks: filteredArtworks)
-                } else if selectedView == "map" {
-                    ArtworkMapView(artworks: filteredArtworks)
+            ZStack {
+                Color.backgroundGray
+                    .ignoresSafeArea()
+                
+                VStack {
+                    if selectedView == "list" {
+                        ArtworkListView(artworks: filteredArtworks)
+                            .padding(.top, 20)
+                    } else if selectedView == "map" {
+                        ArtworkMapView(artworks: filteredArtworks)
+                    }
                 }
             }
             .toolbar {

@@ -75,7 +75,7 @@ struct ArtworkDetailView: View {
             Spacer()
         }
         .ignoresSafeArea(edges: .top)
-        .background(.backgroundGray)
+        .background(Color.backgroundGray)
     }
 }
 

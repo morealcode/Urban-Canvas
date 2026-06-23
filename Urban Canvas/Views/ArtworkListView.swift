@@ -13,33 +13,31 @@ struct ArtworkListView: View {
 
     var body: some View {
 
-        VStack {
-            
-            List(artworks) { artwork in
+        List(artworks) { artwork in
 
-                NavigationLink {
-                    ArtworkDetailView(artwork: artwork)
-                } label: {
-                    HStack {
-                        Image(artwork.illustration ?? "placeholder")
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 60, height: 60)
-                            .clipShape(Circle())
-                        VStack(alignment: .leading) {
-                            Text(artwork.title)
+            NavigationLink {
+                ArtworkDetailView(artwork: artwork)
+            } label: {
+                HStack {
+                    Image(artwork.illustration ?? "placeholder")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 60, height: 60)
+                        .clipShape(Circle())
+                    VStack(alignment: .leading) {
+                        Text(artwork.title)
 
-                            HStack {
-                                Image(systemName: "mappin.circle.fill")
-                                Text(artwork.city)
-                            }
-                            .font(.subheadline)
-                            .foregroundStyle(.secondText)
+                        HStack {
+                            Image(systemName: "mappin.circle.fill")
+                            Text(artwork.city)
                         }
+                        .font(.subheadline)
+                        .foregroundStyle(.secondText)
                     }
                 }
             }
         }
+        .scrollContentBackground(.hidden)
         .navigationTitle("Liste des Street arts")
     }
 }
