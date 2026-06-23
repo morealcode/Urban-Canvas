@@ -481,4 +481,48 @@ class ArtworkViewModel {
             website: "https://www.pantonio.net"
         ),
     ]
+
+    var artworksMission: [ArtworkTracking] = []
+
+    var artworksDiscovered: [ArtworkTracking] = []
+
+    func startMission(_ artworksQuantity: UInt8) {
+        guard artworksQuantity >= 3 && artworksQuantity <= 5 else { return }
+
+        // Clear last started mission if exists
+        // TODO: depends if button start mission showed even if mission not finished
+        if artworksMission.count > 0 { endMission() }
+
+        // New artworks to discover
+        var newArtworks: [ArtworkTracking] = []
+
+        // Select artwork
+
+        // - filtrer les oeuvres déjà découverte dans artworksDiscovered
+            // voir si je fais symmetricDifference entre les tracking et les artworks
+            // pour avoir un tableau d'id d'oeuvre qui ne sont pas discovered
+        
+        // uniqueAuthor = Set(reduce by artiste)
+        // si uniqueAuthor.count > 1
+            // choisir random au moins avec deux artistes différent
+        // sinon prendre un random dans la liste
+        
+        // uniqueStyle = Set(reduce by type)
+        // si uniqueStyle.count > 1
+            // choisir random au moins avec deux type différent
+        // sinon prendre un random dans la liste
+    }
+
+    func endMission() {
+
+        // Update discovered artworks
+        for artwork in artworksMission {
+            if artwork.discovered {
+                artworksDiscovered.append(artwork)
+            }
+        }
+
+        // Clear mission's artworks
+        artworksMission.removeAll()
+    }
 }
