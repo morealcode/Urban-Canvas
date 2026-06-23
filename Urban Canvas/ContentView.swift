@@ -28,8 +28,8 @@ struct ContentView: View {
     var body: some View {
 
         TabView {
-            
-            Tab("Oeuvres", systemImage: "photo.artframe.circle") {
+
+            Tab {
                 NavigationStack {
 
                     ZStack {
@@ -73,10 +73,35 @@ struct ContentView: View {
                         }
                     }
                 }
+            } label: {
+                Label {
+                    Text("Oeuvres")
+                } icon: {
+                    Image(systemName: "photo.artframe.circle")
+                        .environment(\.symbolVariants, .none)
+                }
             }
-            
-            Tab("Auteurs", systemImage: "person.circle") {
+
+            Tab {
                 AuthorListView(authors: artworkViewModel.authors)
+            } label: {
+                Label {
+                    Text("Auteurs")
+                } icon: {
+                    Image(systemName: "person.circle")
+                        .environment(\.symbolVariants, .none)
+                }
+            }
+
+            Tab {
+                MissionView()
+            } label: {
+                Label {
+                    Text("Mission")
+                } icon: {
+                    Image(systemName: "figure.run.circle")
+                        .environment(\.symbolVariants, .none)
+                }
             }
         }
 
