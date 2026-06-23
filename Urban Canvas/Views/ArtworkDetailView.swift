@@ -11,16 +11,6 @@ struct ArtworkDetailView: View {
 
     let artwork: Artwork
 
-    var formattedDescription: AttributedString {
-        do {
-            return try AttributedString(
-                markdown: artwork.description
-            )
-        } catch {
-            return AttributedString(artwork.description)
-        }
-    }
-
     var body: some View {
 
         VStack(alignment: .leading, spacing: 0) {
@@ -34,7 +24,7 @@ struct ArtworkDetailView: View {
                 .padding(.bottom, 12)
                 .padding(.horizontal, 24)
 
-            Text(formattedDescription)
+            Text(artwork.description.markdownAttributed)
                 .font(.footnote)
                 .padding(.bottom, 12)
                 .padding(.horizontal, 24)

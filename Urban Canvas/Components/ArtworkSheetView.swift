@@ -64,7 +64,7 @@ struct ArtworkSheetView: View {
                 .clipped()
                 .allowsHitTesting(false)
 
-            Text(artwork.description)
+            Text(artwork.description.markdownAttributed)
                 .font(.footnote)
                 .padding(24)
         }
@@ -77,9 +77,9 @@ struct ArtworkSheetView: View {
 
     NavigationStack {
         ArtworkSheetView(
-            artwork: artworks[6],
+            artwork: artworks[0],
             onOpenDetail: {
-                navigateToID = artworks[6].id
+                navigateToID = artworks[0].id
             }
         )
         .navigationDestination(item: $navigateToID) { artworkID in
