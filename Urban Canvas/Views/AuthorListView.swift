@@ -66,12 +66,14 @@ struct AuthorListView: View {
                             }
                         }
 
-                        Button {
-                            // TODO: Open website in browser
-                        } label: {
-                            Text("Site web")
-                                .font(.caption2)
-                        }
+                        Link(
+                            "Site web",
+                            destination: URL(
+                                string: author.website
+                            )!
+                        )
+                        .foregroundStyle(.white)
+                        .font(.caption2)
                         .buttonStyle(.borderedProminent)
                         .tint(Color.secondOrange)
                         .buttonSizing(.flexible)

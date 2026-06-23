@@ -15,7 +15,7 @@ class ArtworkViewModel {
         Artwork(
             title: "Fresque Add Fuel",
             description:
-                "Add Fuel s’inspire ici des azulejos portugais pour créer une fresque qui mêle tradition décorative et langage graphique contemporain. Les motifs semblent se répéter, se fissurer et se recomposer, comme si la façade révélait plusieurs couches d’histoire. L’artiste transforme l’ornement en illusion visuelle, jouant avec la symétrie, le bleu, le blanc et les ruptures de rythme pour donner au mur une énergie à la fois élégante et urbaine. Elle donne au lieu une identité forte et mémorable.",
+                "[Add Fuel](https://www.addfuel.com) s’inspire ici des azulejos portugais pour créer une fresque qui mêle tradition décorative et langage graphique contemporain. Les motifs semblent se répéter, se fissurer et se recomposer, comme si la façade révélait plusieurs couches d’histoire. L’artiste transforme l’ornement en illusion visuelle, jouant avec la symétrie, le bleu, le blanc et les ruptures de rythme pour donner au mur une énergie à la fois élégante et urbaine. Elle donne au lieu une identité forte et mémorable.",
             illustration: "add_fuel",
             month: nil,
             year: 2017,
@@ -39,7 +39,7 @@ class ArtworkViewModel {
         Artwork(
             title: "Fresque Seth",
             description:
-                "Dans cette fresque poétique, Seth met en scène l’enfance comme un passage vers l’imaginaire. Son personnage, souvent vu de dos ou absorbé par un monde invisible, invite le spectateur à projeter ses propres souvenirs. Les couleurs douces, la simplicité apparente du dessin et la relation avec l’architecture environnante créent une œuvre accessible, sensible et silencieuse, typique de l’univers de Julien Malland. Elle enrichit le parcours parisien en donnant au lieu une identité forte et mémorable.",
+                "Dans cette fresque poétique, [Seth](https://seth.fr) met en scène l’enfance comme un passage vers l’imaginaire. Son personnage, souvent vu de dos ou absorbé par un monde invisible, invite le spectateur à projeter ses propres souvenirs. Les couleurs douces, la simplicité apparente du dessin et la relation avec l’architecture environnante créent une œuvre accessible, sensible et silencieuse, typique de l’univers de [Julien Malland](https://seth.fr). Elle enrichit le parcours parisien en donnant au lieu une identité forte et mémorable.",
             illustration: "seth_jeanne_darc",
             month: nil,
             year: 2017,
@@ -63,7 +63,7 @@ class ArtworkViewModel {
         Artwork(
             title: "Fresque Conor Harrington",
             description:
-                "Conor Harrington mêle dans cette fresque l’élégance de la peinture classique et la tension brute du street art contemporain. Ses personnages, souvent inspirés de l’histoire militaire ou aristocratique, semblent pris dans un mouvement interrompu, entre réalisme et éclatement pictural. Les coulures, les gestes rapides et la monumentalité du format donnent à l’œuvre une intensité dramatique qui contraste avec le quotidien du boulevard. Elle donne au lieu une identité forte et mémorable.",
+                "[Conor Harrington](https://conorharrington.com) mêle dans cette fresque l’élégance de la peinture classique et la tension brute du street art contemporain. Ses personnages, souvent inspirés de l’histoire militaire ou aristocratique, semblent pris dans un mouvement interrompu, entre réalisme et éclatement pictural. Les coulures, les gestes rapides et la monumentalité du format donnent à l’œuvre une intensité dramatique qui contraste avec le quotidien du boulevard. Elle donne au lieu une identité forte et mémorable.",
             illustration: "conor_harrington",
             month: nil,
             year: 2017,
@@ -87,7 +87,7 @@ class ArtworkViewModel {
         Artwork(
             title: "Lighthouse",
             description:
-                "Cette œuvre attribuée à Banksy transforme un simple mur de Marseille en scène poétique grâce à un jeu d’ombre et de lumière. Le motif du phare dialogue avec un élément réel de la rue, créant une illusion visuelle discrète mais très forte. La phrase intégrée à la composition ajoute une dimension intime, presque mélancolique, qui contraste avec la simplicité du dessin. L’œuvre rappelle la capacité du street art à révéler la poésie cachée d’un lieu ordinaire.",
+                "Cette œuvre attribuée à [Banksy](https://www.banksy.co.uk) transforme un simple mur de Marseille en scène poétique grâce à un jeu d’ombre et de lumière. Le motif du phare dialogue avec un élément réel de la rue, créant une illusion visuelle discrète mais très forte. La phrase intégrée à la composition ajoute une dimension intime, presque mélancolique, qui contraste avec la simplicité du dessin. L’œuvre rappelle la capacité du street art à révéler la poésie cachée d’un lieu ordinaire.",
             illustration: "banksy_lighthouse_marseille",
             month: "Mai",
             year: 2025,
@@ -183,7 +183,7 @@ class ArtworkViewModel {
         Artwork(
             title: "Enfant Voyageur",
             description:
-                "Dans cette fresque poétique, un enfant semble regarder au-delà du mur, comme s’il ouvrait une fenêtre vers un monde invisible. Le style tendre et coloré rappelle l’univers de Seth, où l’enfance devient un symbole de rêve, de passage et d’imaginaire. L’œuvre joue avec l’architecture environnante et transforme la façade en récit silencieux. Elle invite les passants à ralentir, à lever les yeux et à retrouver une part d’émerveillement dans la ville.",
+                "Dans cette fresque poétique, un enfant semble regarder au-delà du mur, comme s’il ouvrait une fenêtre vers un monde invisible. Le style tendre et coloré rappelle l’univers de [Seth](https://seth.fr), où l’enfance devient un symbole de rêve, de passage et d’imaginaire. L’œuvre joue avec l’architecture environnante et transforme la façade en récit silencieux. Elle invite les passants à ralentir, à lever les yeux et à retrouver une part d’émerveillement dans la ville.",
             illustration: "enfant_voyageur_lyon",
             month: nil,
             year: 2022,
@@ -207,7 +207,7 @@ class ArtworkViewModel {
         Artwork(
             title: "Canut Pixel",
             description:
-                "Cette mosaïque inspirée de l’univers d’Invader introduit une touche ludique dans les pentes de la Croix-Rousse. Le motif pixelisé dialogue avec les escaliers, les murs anciens et l’histoire ouvrière du quartier. À petite échelle, l’œuvre fonctionne comme un signe à découvrir, presque un secret urbain. Elle transforme la promenade en chasse visuelle et rappelle que le street art n’a pas toujours besoin d’être monumental pour marquer durablement un lieu.",
+                "Cette mosaïque inspirée de l’univers d’[Invader](https://www.space-invaders.com) introduit une touche ludique dans les pentes de la Croix-Rousse. Le motif pixelisé dialogue avec les escaliers, les murs anciens et l’histoire ouvrière du quartier. À petite échelle, l’œuvre fonctionne comme un signe à découvrir, presque un secret urbain. Elle transforme la promenade en chasse visuelle et rappelle que le street art n’a pas toujours besoin d’être monumental pour marquer durablement un lieu.",
             illustration: "canut_pixel_lyon",
             month: nil,
             year: 2018,
@@ -355,7 +355,7 @@ class ArtworkViewModel {
             firstName: "Add",
             lastName: "Fuel",
             age: "45",
-            picture: "add_fuel",
+            picture: "add_fuel-auth",
             origin: "Portugal",
             style: .mosaiques,
             website: "https://www.addfuel.com"
@@ -375,7 +375,7 @@ class ArtworkViewModel {
             firstName: "Conor",
             lastName: "Harrington",
             age: "46",
-            picture: "conor_harrington",
+            picture: "conor_harrington-auth",
             origin: "Irlande",
             style: .mural,
             website: "https://conorharrington.com"
@@ -499,17 +499,17 @@ class ArtworkViewModel {
         // Select artwork
 
         // - filtrer les oeuvres déjà découverte dans artworksDiscovered
-            // voir si je fais symmetricDifference entre les tracking et les artworks
-            // pour avoir un tableau d'id d'oeuvre qui ne sont pas discovered
-        
+        // voir si je fais symmetricDifference entre les tracking et les artworks
+        // pour avoir un tableau d'id d'oeuvre qui ne sont pas discovered
+
         // uniqueAuthor = Set(reduce by artiste)
         // si uniqueAuthor.count > 1
-            // choisir random au moins avec deux artistes différent
+        // choisir random au moins avec deux artistes différent
         // sinon prendre un random dans la liste
-        
+
         // uniqueStyle = Set(reduce by type)
         // si uniqueStyle.count > 1
-            // choisir random au moins avec deux type différent
+        // choisir random au moins avec deux type différent
         // sinon prendre un random dans la liste
     }
 

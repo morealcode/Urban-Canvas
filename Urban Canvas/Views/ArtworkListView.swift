@@ -36,6 +36,9 @@ struct ArtworkListView: View {
                     }
                 }
             }
+            .alignmentGuide(.listRowSeparatorLeading) { _ in
+                return 0
+            }
         }
         .scrollContentBackground(.hidden)
         .navigationTitle("Liste des Street arts")

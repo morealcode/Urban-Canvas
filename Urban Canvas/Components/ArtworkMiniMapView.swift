@@ -28,6 +28,10 @@ struct ArtworkMiniMapView: View {
                     .scaledToFill()
                     .frame(width: 54, height: 54)
                     .clipShape(Circle())
+                    .overlay(
+                        Circle()
+                            .stroke(.white, lineWidth: 2)
+                    )
             }
         }
         .frame(height: 160)

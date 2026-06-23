@@ -11,6 +11,16 @@ struct ArtworkDetailView: View {
 
     let artwork: Artwork
 
+    var formattedDescription: AttributedString {
+        do {
+            return try AttributedString(
+                markdown: artwork.description
+            )
+        } catch {
+            return AttributedString(artwork.description)
+        }
+    }
+
     var body: some View {
 
         VStack(alignment: .leading, spacing: 0) {
@@ -24,7 +34,7 @@ struct ArtworkDetailView: View {
                 .padding(.bottom, 12)
                 .padding(.horizontal, 24)
 
-            Text(artwork.description)
+            Text(formattedDescription)
                 .font(.footnote)
                 .padding(.bottom, 12)
                 .padding(.horizontal, 24)
@@ -70,13 +80,22 @@ struct ArtworkDetailView: View {
             .padding(.bottom, 24)
             .padding(.horizontal, 24)
 
-            ArtworkMiniMapView(illustration: artwork.illustration, latitude: artwork.coordinates.latitude, longitude: artwork.coordinates.longitude)
+            ArtworkMiniMapView(
+                illustration: artwork.illustration,
+                latitude: artwork.coordinates.latitude,
+                longitude: artwork.coordinates.longitude
+            )
 
             Spacer()
         }
         .ignoresSafeArea(edges: .top)
         .background(Color.backgroundGray)
     }
+}
+
+#Preview {
+    @Previewable var artworks = ArtworkViewModel().artworks
+    ArtworkDetailView(artwork: artworks[0])
 }
 
 #Preview {

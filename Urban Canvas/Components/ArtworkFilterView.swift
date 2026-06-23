@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ArtworkFilterView: View {
+    @Environment(\.dismiss) var dismiss
 
     @Binding var isShowing: Bool
     @Binding var selectedStyle: ArtworkStyle?
@@ -26,6 +27,7 @@ struct ArtworkFilterView: View {
                 title: "Tous",
                 isSelected: selectedStyle == nil
             ) {
+                dismiss()
                 withAnimation {
                     selectedStyle = nil
                 }
@@ -37,6 +39,7 @@ struct ArtworkFilterView: View {
                     title: style.rawValue,
                     isSelected: selectedStyle == style
                 ) {
+                    dismiss()
                     withAnimation {
                         selectedStyle = style
                     }
