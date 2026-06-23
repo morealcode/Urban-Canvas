@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ImageBannerView: View {
     let illustration: String?
+    let height: Int
 
     var body: some View {
         
@@ -16,10 +17,11 @@ struct ImageBannerView: View {
             Image(illustration ?? "placeholder")
                 .resizable()
                 .scaledToFill()
-                .frame(width: geometry.size.width, height: 278)
+                .frame(width: geometry.size.width, height: CGFloat(height))
                 .clipped()
+                .allowsHitTesting(false)
         }
-        .frame(height: 278)
+        .frame(height: CGFloat(height))
         .padding(.bottom, 24)
         
     }
@@ -29,7 +31,7 @@ struct ImageBannerView: View {
     @Previewable var artworks = ArtworkViewModel().artworks
     
     VStack {
-        ImageBannerView(illustration: artworks[0].illustration)
+        ImageBannerView(illustration: artworks[0].illustration, height: 300)
         Spacer()
     }
     .ignoresSafeArea(edges: .top)

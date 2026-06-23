@@ -15,7 +15,7 @@ struct ArtworkDetailView: View {
 
         VStack(alignment: .leading, spacing: 0) {
 
-            ImageBannerView(illustration: artwork.illustration)
+            ImageBannerView(illustration: artwork.illustration, height: 278)
 
             Text(artwork.title)
                 .font(.title2)
