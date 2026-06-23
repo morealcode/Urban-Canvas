@@ -5,7 +5,6 @@
 //  Created by morealcode on 22/06/2026.
 //
 
-import MapKit
 import SwiftUI
 
 struct ArtworkDetailView: View {
@@ -16,16 +15,7 @@ struct ArtworkDetailView: View {
 
         VStack(alignment: .leading, spacing: 0) {
 
-            // Adaptative for any image size
-            GeometryReader { geometry in
-                Image(artwork.illustration ?? "placeholder")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: geometry.size.width, height: 278)
-                    .clipped()
-            }
-            .frame(height: 278)
-            .padding(.bottom, 24)
+            ImageBannerView(illustration: artwork.illustration)
 
             Text(artwork.title)
                 .font(.title2)
@@ -80,26 +70,7 @@ struct ArtworkDetailView: View {
             .padding(.bottom, 24)
             .padding(.horizontal, 24)
 
-            Map {
-                Annotation(
-                    "",
-                    coordinate: CLLocationCoordinate2D(
-                        latitude: artwork.coordinates.latitude,
-                        longitude: artwork.coordinates.longitude
-                    )
-                ) {
-                    Image(artwork.illustration ?? "placeholder")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 54, height: 54)
-                        .clipShape(Circle())
-                }
-            }
-            .frame(height: 160)
-            .clipShape(
-                RoundedRectangle(cornerRadius: 26)
-            )
-            .padding(.horizontal, 24)
+            ArtworkMapView(illustration: artwork.illustration, latitude: artwork.coordinates.latitude, longitude: artwork.coordinates.longitude)
 
             Spacer()
         }
