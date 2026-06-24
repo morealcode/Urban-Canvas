@@ -486,7 +486,34 @@ class ArtworkViewModel {
 
     var artworksDiscovered: [ArtworkTracking] = []
 
-    func startMission(_ artworksQuantity: UInt8) {
+    var availableArtworksToDiscover: Int {
+        Set(artworks.map { $0.id })
+            .subtracting(artworksDiscovered.map { $0.artworkID })
+            .count
+    }
+    
+    var artworksMissionLeft: Int {
+        artworksMission.filter { $0.discovered }.count
+    }
+
+    var isMissionFinished: Bool {
+        artworksMission.filter { !$0.discovered }.isEmpty
+    }
+
+    func toggleDiscovered(for artwork: ArtworkTracking) {
+        guard
+            let index = artworksMission.firstIndex(where: {
+                $0.id == artwork.id
+            })
+        else {
+            return
+        }
+
+        artworksMission[index].discovered.toggle()
+        print(artworksMission)
+    }
+
+    func startMission(_ artworksQuantity: UInt8 = 3) {
         // Verify if asks 3 to 5 missions
         guard artworksQuantity >= 3 && artworksQuantity <= 5 else { return }
 
@@ -576,7 +603,7 @@ class ArtworkViewModel {
     func endMission() {
 
         for artwork in artworksMission where artwork.discovered {
-            
+
             // Is artwork already discovered ?
             let alreadyDiscovered = artworksDiscovered.contains {
                 $0.artworkID == artwork.artworkID
