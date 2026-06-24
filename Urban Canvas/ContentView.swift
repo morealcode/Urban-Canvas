@@ -95,6 +95,7 @@ struct ContentView: View {
 
             Tab {
                 MissionView()
+                    .environment(artworkViewModel)
             } label: {
                 Label {
                     Text("Mission")

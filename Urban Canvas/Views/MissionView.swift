@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct MissionView: View {
+    @Environment(ArtworkViewModel.self) private var artworkViewModel
+    
     var body: some View {
         Text("Mission!")
+        Text("Nombre: \(artworkViewModel.artworks.count)")
         /*
         
         if artworksDiscovered.count < artworks.count
@@ -55,5 +58,8 @@ struct MissionView: View {
 }
 
 #Preview {
+    @Previewable @State var artworkViewModel: ArtworkViewModel = ArtworkViewModel()
+    
     MissionView()
+        .environment(artworkViewModel)
 }
