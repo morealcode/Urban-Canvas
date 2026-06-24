@@ -487,35 +487,176 @@ class ArtworkViewModel {
     var artworksDiscovered: [ArtworkTracking] = []
 
     func startMission(_ artworksQuantity: UInt8) {
+        // Verify if asks 3 to 5 missions
         guard artworksQuantity >= 3 && artworksQuantity <= 5 else { return }
 
         // Clear last started mission if exists
         // TODO: depends if button start mission showed even if mission not finished
-        if artworksMission.count > 0 { endMission() }
+        if !artworksMission.isEmpty {
+            endMission()
+        }
 
-        // New artworks to discover
+        // MARK: Preparing data and limits
+
+        // Get only artworks IDs that are not discovered
+        var notDiscoveredArtworksID: Set<UUID> = Set(artworks.map { $0.id })
+                .subtracting(artworksDiscovered.map { $0.id } )
+
+        // Verify if there is still artworks to discover
+        guard !notDiscoveredArtworksID.isEmpty else { return }
+
+        // TODO: update data model in artworks with authors ID and update UI to filter based on ID
+        // ID must be identical between authors and artworks[x].author.id
+        
+        let notDiscoveredArtworks = artworks.filter {
+            notDiscoveredArtworksID.contains($0.id)
+        }
+        
+        // Authors not yet used in the current mission
+        var authorsNotYetUsedInCurrentMission: Set<UUID> = Set(
+            notDiscoveredArtworks.map { $0.author.id }
+        )
+
+        // Styles not yet used in the current mission
+        var stylesNotYetUsedInCurrentMission: Set<ArtworkStyle> = Set(
+            notDiscoveredArtworks.map { $0.type }
+        )
+
+        // MARK: Selection algorithm
+
         var newArtworks: [ArtworkTracking] = []
 
-        // Select artwork
+        // Update counter accordingly to available artworks to discover
+        var counter: UInt8 =
+            artworksQuantity > notDiscoveredArtworksID.count
+            ? UInt8(notDiscoveredArtworksID.count) : artworksQuantity
 
-        // - filtrer les oeuvres déjà découverte dans artworksDiscovered
-        // voir si je fais symmetricDifference entre les tracking et les artworks
-        // pour avoir un tableau d'id d'oeuvre qui ne sont pas discovered
+        while counter > 0 {
 
-        // uniqueAuthor = Set(reduce by artiste)
-        // si uniqueAuthor.count > 1
-        // choisir random au moins avec deux artistes différent
-        // sinon prendre un random dans la liste
+            // Append a random artwork for the first time
+            if newArtworks.isEmpty {
 
-        // uniqueStyle = Set(reduce by type)
-        // si uniqueStyle.count > 1
-        // choisir random au moins avec deux type différent
-        // sinon prendre un random dans la liste
+                let randomArtwork: Artwork = getRandomArtwork()
+
+                newArtworks.append(ArtworkTracking(artworkID: randomArtwork.id))
+
+                updateFilters(artwork: randomArtwork)
+
+                counter -= 1
+                continue
+            }
+
+            // Append a random artwork if there is no any author or style to discover
+            if authorsNotYetUsedInCurrentMission.isEmpty && stylesNotYetUsedInCurrentMission.isEmpty {
+
+                let randomArtwork: Artwork = getRandomArtwork()
+
+                newArtworks.append(ArtworkTracking(artworkID: randomArtwork.id))
+
+                updateFilters(artwork: randomArtwork)
+
+                counter -= 1
+                continue
+            }
+
+            // If there is author or style to discover
+            if !authorsNotYetUsedInCurrentMission.isEmpty || !stylesNotYetUsedInCurrentMission.isEmpty {
+
+                let artworksUniqueAuthorAndStyle = artworks.filter {
+                    notDiscoveredArtworksID.contains($0.id)
+                        && authorsNotYetUsedInCurrentMission.contains($0.author.id)
+                        && stylesNotYetUsedInCurrentMission.contains($0.type)
+                }
+
+                // Append artwork with unique author AND style
+                // Otherwise append artwork with unique author or style if exist
+                // Author 1 - Style 1 (same author, different style)
+                // Author 1 - Style 2 (same author, different style)
+                // Author 2 - Style 3 (same style, different author)
+                // Author 3 - Style 3 (same style, different author)
+                // Author 4 - Style 4 (different author, different style) > if exist, we want
+                if let randomArtwork: Artwork =
+                    artworksUniqueAuthorAndStyle.randomElement()
+                {
+
+                    newArtworks.append(
+                        ArtworkTracking(artworkID: randomArtwork.id)
+                    )
+
+                    updateFilters(artwork: randomArtwork)
+
+                    counter -= 1
+                    continue
+
+                }
+
+                let artworksUniqueAuthorOrStyle = artworks.filter {
+                    notDiscoveredArtworksID.contains($0.id)
+                        && (authorsNotYetUsedInCurrentMission.contains($0.author.id)
+                        || stylesNotYetUsedInCurrentMission.contains($0.type))
+                }
+
+                // Otherwise append artwork with unique author OR style
+                if let randomArtwork: Artwork =
+                    artworksUniqueAuthorOrStyle.randomElement()
+                {
+
+                    newArtworks.append(
+                        ArtworkTracking(artworkID: randomArtwork.id)
+                    )
+
+                    updateFilters(artwork: randomArtwork)
+
+                    counter -= 1
+                    continue
+
+                }
+            }
+
+            // Emergency exit
+            counter -= 1
+        }
+
+        print(newArtworks)
+
+        // Update mission artworks to change UI
+        artworksMission = newArtworks
+
+        func updateFilters(artwork: Artwork) {
+
+            // Remove artwork in available artwork to discover
+            if let index = notDiscoveredArtworksID.firstIndex(of: artwork.id) {
+                notDiscoveredArtworksID.remove(at: index)
+            }
+
+            // Remove artwork's author in available unique author
+            if let index = authorsNotYetUsedInCurrentMission.firstIndex(
+                of: artwork.author.id
+            ) {
+                authorsNotYetUsedInCurrentMission.remove(at: index)
+            }
+
+            // Remove artwork's style in available unique style
+            if let index = stylesNotYetUsedInCurrentMission.firstIndex(of: artwork.type) {
+                stylesNotYetUsedInCurrentMission.remove(at: index)
+            }
+        }
+
+        func getRandomArtwork() -> Artwork {
+            
+            // TODO: use guard in future instead of !
+            let randomID = notDiscoveredArtworksID.randomElement()!
+
+            return artworks.first {
+                $0.id == randomID
+            }!
+        }
     }
 
     func endMission() {
 
         // Update discovered artworks
+        // TODO: depends if it pushes immediately when artwork discovered button triggered
         for artwork in artworksMission {
             if artwork.discovered {
                 artworksDiscovered.append(artwork)
