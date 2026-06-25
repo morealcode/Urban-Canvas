@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct MissionView: View {
+    @Environment(\.dismiss) var dismiss
     @Environment(ArtworkViewModel.self) private var vm
 
     @State private var isSuccessMissionVisible: Bool = false
-
+    @State private var finishedMissionArtworkCount: Int = 0
+    
     @State private var progress = 0.5
 
     @State private var selectedArtworkID: UUID?
@@ -88,7 +90,11 @@ struct MissionView: View {
                                 )
                             }
                         )
-                        .animation(.easeInOut(duration: 0.4), value: vm.artworksMission.count - vm.artworksMissionLeft)
+                        .animation(
+                            .easeInOut(duration: 0.4),
+                            value: vm.artworksMission.count
+                                - vm.artworksMissionLeft
+                        )
                     }
                 }
             }
@@ -102,12 +108,40 @@ struct MissionView: View {
             }
         }
         .sheet(isPresented: $isSuccessMissionVisible) {
-            VStack {
-                Text("Felicitations")
-                Text("Vous avez terminé votre mission !")
+            VStack(spacing: 24) {
+
                 Text("🥳")
                     .font(.title)
+
+                VStack(spacing: 8) {
+                    Text("Félicitations !")
+                        .font(.title2)
+                        .fontWeight(.bold)
+
+                    Text(
+                        "\(finishedMissionArtworkCount) oeuvres découvertes"
+                    )
+                    .font(.body)
+                    .foregroundStyle(.secondary)
+                    .multilineTextAlignment(.center)
+                }
+
+                Label(
+                    "Vous avez terminé votre mission",
+                    systemImage: "checkmark.seal.fill"
+                )
+                .font(.headline)
+                .foregroundStyle(.green)
+
+                Button("Continuer") {
+                    isSuccessMissionVisible = false
+                }
+                .buttonStyle(.borderedProminent)
+                .controlSize(.large)
             }
+            .padding(24)
+            .presentationDetents([.medium])
+            .presentationDragIndicator(.visible)
         }
     }
 
@@ -116,8 +150,7 @@ struct MissionView: View {
             return
         }
 
-//        print("Mission finished")
-
+        finishedMissionArtworkCount = vm.artworksMission.count
         isSuccessMissionVisible = true
         vm.endMission()
     }
