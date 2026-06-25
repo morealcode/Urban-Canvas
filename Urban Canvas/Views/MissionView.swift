@@ -12,6 +12,13 @@ struct MissionView: View {
 
     @State private var isSuccessMissionVisible: Bool = false
 
+    @State private var progress = 0.5
+
+    @State private var selectedArtworkID: UUID?
+    @State private var artworkToShow: Artwork?
+
+    @State var navigateToID: Artwork.ID?
+
     var body: some View {
 
         ZStack {
@@ -41,35 +48,57 @@ struct MissionView: View {
 
             } else {
 
-                VStack(spacing: 20) {
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 32) {
 
-                    Text(
-                        "\(vm.artworksMissionLeft)/\(vm.artworksMission.count) oeuvres découvertes"
-                    )
+                        ForEach(
+                            Array(vm.artworksMission.enumerated()),
+                            id: \.offset
+                        ) { index, artworkTracking in
 
-                    // TODO: Add progress bar or any graph
+                            if let artwork = vm.findArtwork(artworkTracking) {
 
-                    ForEach(vm.artworksMission) { artwork in
-
-                        /* TODO: Add numbered cards
-                         titre
-                         image
-                         type
-                         auteur
-                         localisation texte
-                         bouton détail > vue détail
-                         bouton discovered (true/false)
-                        */
-
-                        Button("Toggle discover for \(artwork.id)") {
-                            vm.toggleDiscovered(for: artwork)
-                            checkIfMissionFinished()
+                                MissionCardView(
+                                    cardIndex: index + 1,
+                                    artwork: artwork,
+                                    discovered: artworkTracking.discovered,
+                                    toggleDiscovered: {
+                                        vm.toggleDiscovered(
+                                            for: artworkTracking
+                                        )
+                                        checkIfMissionFinished()
+                                    },
+                                    onOpenDetail: {
+                                        navigateToID = artwork.id
+                                    }
+                                )
+                            }
                         }
-                        .buttonStyle(.borderedProminent)
-                        .tint(artwork.discovered ? .green : .gray)
+                    }
+                    .padding()
+                }
+                .toolbar {
+                    ToolbarItem(placement: .principal) {
 
+                        ProgressView(
+                            value: Double(vm.artworksMissionLeft),
+                            total: Double(vm.artworksMission.count),
+                            label: {
+                                Text(
+                                    "\(vm.artworksMissionLeft) \(vm.artworksMissionLeft > 1 ? "oeuvres" : "oeuvre") découvertes sur \(vm.artworksMission.count)"
+                                )
+                            }
+                        ).animation(.easeInOut(duration: 0.4), value: vm.artworksMission.count - vm.artworksMissionLeft)
                     }
                 }
+            }
+        }
+        .onChange(of: selectedArtworkID) { _, newID in
+            artworkToShow = vm.artworks.first { $0.id == newID }
+        }
+        .navigationDestination(item: $navigateToID) { artworkID in
+            if let artwork = vm.artworks.first(where: { $0.id == artworkID }) {
+                ArtworkDetailView(artwork: artwork)
             }
         }
         .sheet(isPresented: $isSuccessMissionVisible) {
@@ -87,7 +116,7 @@ struct MissionView: View {
             return
         }
 
-        print("Mission finished")
+//        print("Mission finished")
 
         isSuccessMissionVisible = true
         vm.endMission()
@@ -98,6 +127,8 @@ struct MissionView: View {
     @Previewable @State var artworkViewModel: ArtworkViewModel =
         ArtworkViewModel()
 
-    MissionView()
-        .environment(artworkViewModel)
+    NavigationStack {
+        MissionView()
+            .environment(artworkViewModel)
+    }
 }

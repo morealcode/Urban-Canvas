@@ -34,7 +34,6 @@ struct ArtworkMapView: View {
         .onChange(of: selectedArtworkID) { _, newID in
             artworkToShow = artworks.first { $0.id == newID }
         }
-        
         .navigationDestination(item: $navigateToID) { artworkID in
             if let artwork = artworks.first(where: { $0.id == artworkID }) {
                 ArtworkDetailView(artwork: artwork)

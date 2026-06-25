@@ -17,4 +17,12 @@ struct Author: Identifiable {
     let origin: String
     let style: ArtworkStyle
     let website: String
+
+    var fullName: String {
+        if let lastName {
+            return firstName + " " + lastName
+        }
+
+        return firstName
+    }
 }

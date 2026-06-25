@@ -485,6 +485,14 @@ class ArtworkViewModel {
     var artworksMission: [ArtworkTracking] = []
 
     var artworksDiscovered: [ArtworkTracking] = []
+    
+    func findArtwork(_ artworkTracking: ArtworkTracking) -> Artwork? {
+        guard let index = artworks.firstIndex(where: { $0.id == artworkTracking.id }) else {
+            return nil
+        }
+
+        return artworks[index]
+    }
 
     var availableArtworksToDiscover: Int {
         Set(artworks.map { $0.id })
@@ -510,7 +518,6 @@ class ArtworkViewModel {
         }
 
         artworksMission[index].discovered.toggle()
-        print(artworksMission)
     }
 
     func startMission(_ artworksQuantity: UInt8 = 3) {
@@ -587,7 +594,7 @@ class ArtworkViewModel {
             updateFilters(artwork)
         }
 
-        print(newArtworks)
+        // print(newArtworks)
 
         // Update mission artworks to change UI
         artworksMission = newArtworks

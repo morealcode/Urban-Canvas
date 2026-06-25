@@ -22,7 +22,7 @@ struct ImageBannerView: View {
                 .allowsHitTesting(false)
         }
         .frame(height: CGFloat(height))
-        .padding(.bottom, 24)
+//        .padding(.bottom, 24)
         
     }
 }
