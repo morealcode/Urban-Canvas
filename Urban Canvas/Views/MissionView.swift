@@ -25,11 +25,10 @@ struct MissionView: View {
             if vm.availableArtworksToDiscover == 0 {
 
                 VStack {
-                    Text("Il n'y plus d'oeuvre à découvrir")
-
-                    List(vm.artworksDiscovered) { artwork in
-                        Text(artwork.artworkID.uuidString)
-                            .foregroundStyle(.mainText)
+                    ContentUnavailableView {
+                        Label("Oups...", systemImage: "tray.fill")
+                    } description: {
+                        Text("Il n'y plus d'oeuvre à découvrir.")
                     }
                 }
 
@@ -85,10 +84,11 @@ struct MissionView: View {
                             total: Double(vm.artworksMission.count),
                             label: {
                                 Text(
-                                    "\(vm.artworksMissionLeft) \(vm.artworksMissionLeft > 1 ? "oeuvres" : "oeuvre") découvertes sur \(vm.artworksMission.count)"
+                                    "\(vm.artworksMissionLeft) \(vm.artworksMissionLeft > 1 ? "oeuvres" : "oeuvre") \(vm.artworksMissionLeft > 1 ? "découvertes" : "découverte") sur \(vm.artworksMission.count)"
                                 )
                             }
-                        ).animation(.easeInOut(duration: 0.4), value: vm.artworksMission.count - vm.artworksMissionLeft)
+                        )
+                        .animation(.easeInOut(duration: 0.4), value: vm.artworksMission.count - vm.artworksMissionLeft)
                     }
                 }
             }
